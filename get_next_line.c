@@ -39,24 +39,3 @@ char	*get_next_line(int fd)
 	}
 	return (next_line);
 }
-
-#include <stdio.h>
-
-int main()
-{
-	int file_descriptor;
-	char *line;
-
-	file_descriptor = open("test.txt", O_RDONLY);
-	if (file_descriptor < 0)
-	{
-		printf("Error , can't open\n");
-		return (0);
-	}
-	while (((line = get_next_line(file_descriptor)) != NULL))
-	{
-		printf("%s\n", line);
-		free(line);
-	}
-	close(file_descriptor);
-}
